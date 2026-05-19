@@ -7,9 +7,9 @@ ECC:   Tarik, Peri, Farah, and Vinny
 ## Introduction: 
 This project is a central control PCB designed to serve as the primary communication and motor control hub for Cornell Hyperloop's MiniPod. The board integrates multiple communication protocols to interface with a variety of peripherals: CANopen for servo motor control via the EPOS2 70/10, Step/Dir for stepper motor control via the TB6600, I2C for a distributed sensor network of temperature and current monitors, and PWM for fan speed control. The modular architecture supports hot-pluggable expansion, allowing sensors, MCU, and Multiplexers to be swapped or added without disrupting system operation. The board is ~265mm x 135mm and consists of 4 Layers: Signal-GND-PWR-Signal, with the PWR plane seperated into 3.3V,5.0V, and 12V sections to support different components. The most up to date files are in the Hyperloop Organized PCB folder.
 
-<img width="2447" height="1292" alt="Hyperloop PCB 3D View 2" src="https://github.com/user-attachments/assets/513536a0-fc21-449e-84f7-1170ed4861d6" />
-<img width="3022" height="1585" alt="Hyperloop PCB 3D View" src="https://github.com/user-attachments/assets/7e321e29-0b15-415e-86ab-e76cad04b316" />
-<img width="3095" height="1633" alt="Hyperloop PCB Planes View" src="https://github.com/user-attachments/assets/3b8db18f-d711-47fe-8b7d-09800f148bd3" />
+<img width="2447" height="1292" alt="Hyperloop PCB 3D View 2" src="https://github.com/user-attachments/assets/914e8a3b-c1fa-4918-a67b-c81d40fb82c3" />
+<img width="3022" height="1585" alt="Hyperloop PCB 3D View" src="https://github.com/user-attachments/assets/1b097068-f752-4173-912d-62b8ce4cb672" />
+<img width="3095" height="1633" alt="Hyperloop PCB Planes View" src="https://github.com/user-attachments/assets/27436f15-97ba-4f9e-87ac-6d6f4236aeae" />
 
 ## Components:
 Cornell Hyperloop's MiniPod is ~7ft, meaning that sesnors and motors must be controlled by the motherbaord from a distance. This is why most components will be connected to the PCB via Cable/Wire connectors.
@@ -20,7 +20,7 @@ The motherboard is controlled with an Arduino Nano R4
     <td align="center"><b>Arduino Nano R4</b></td>
   </tr>
   <tr>
-    <td><img width="200" height="200" alt="1782_sml" src="https://github.com/user-attachments/assets/c555c888-6610-498c-ab29-f437f465f192"/></td>
+    <td><img width="200" height="200" alt="1782_sml" src="https://github.com/user-attachments/assets/c92ee6d2-184c-49f4-b817-950f5ef4ed6a"/></td>
   </tr>
 </table>
 
@@ -28,16 +28,16 @@ The motherboard is controlled with an Arduino Nano R4
 Overheating and current spikes are critical concerns on the Pod, so temperature and current sensors are distributed throughout. Temperature sensors use 8-pin Molex connectors (2 power, 2 communication, 1 interrupt, 3 alert pins), while current sensors use 4-pin Molex connectors (2 power, 2 communication pins). Vin+ and Vin− are connected across the points being measured, not the board, and I²C addresses are permanently hardset on the board. Additionally, a TCA9548A I2C multiplexer was integrated to expand the single I2C bus into up to 8 independent channels. 4-pin cooling fans are also distributed across the Pod, represented as 4-pin Molex connectors.
 <table>
   <tr>
-    <td align="center"><b>Temperature Sensor: INA260</b></td>
-    <td align="center"><b>Current Sensor: MCP9808</b></td>
+    <td align="center"><b>Temperature Sensor: MCP9808 </b></td>
+    <td align="center"><b>Current Sensor: INA260</b></td>
     <td align="center"><b>Fan: Arctic P12</b></td>
     <td align="center"><b>Multiplexer: TCA9548A</b></td>
   </tr>
   <tr>
-    <td><img width="200" height="200" alt="4226" src="https://github.com/user-attachments/assets/4479510a-57ca-4d08-a089-75c23e64051a"/></td>
-    <td><img width="200" height="200" alt="1782_sml" src="https://github.com/user-attachments/assets/cbe93dd1-a44e-4b51-9fe7-5c6dce833bb5"/></td>
-    <td><img width="200" height="200" alt="1782_sml" src="https://github.com/user-attachments/assets/fab99380-7355-43c2-a29b-b7ff837dfcf8"/></td>
-    <td><img width="200" height="200" alt="1782_sml" src="https://github.com/user-attachments/assets/eeab189c-468b-4ec0-a67b-0c664511fe24"/></td>
+    <td><img width="200" height="200" alt="4226" src="https://github.com/user-attachments/assets/b8602e0a-7933-4f16-ba07-426b1ad53a9e"/></td>
+    <td><img width="200" height="200" alt="1782_sml" src="https://github.com/user-attachments/assets/ad92f344-274d-4a18-9b53-3f03cfa20f65"/></td>
+    <td><img width="200" height="200" alt="1782_sml" src="https://github.com/user-attachments/assets/143efd9a-66ff-4b10-af5a-e45ea73f2d75"/></td>
+    <td><img width="200" height="200" alt="1782_sml" src="https://github.com/user-attachments/assets/656c99bf-d054-4f5e-9c2b-1e8aadbedd3d"/></td>
   </tr>
 </table>
 
@@ -49,10 +49,11 @@ The Pod interfaces with a TB6600 stepper driver and an EPOS2 70/10 servo control
     <td align="center"><b>Molex Micro-Fir 3.0 4-pin connector</b></td>
   </tr>
   <tr>
-    <td><img width="150" height="150" alt="4226" src="https://github.com/user-attachments/assets/18bdef2e-033b-440a-bae9-26655fe41961"/></td>
-    <td><img width="150" height="150" alt="1782_sml" src="https://github.com/user-attachments/assets/f1de37b4-624a-4a00-9d7e-f7a6dbf0ad55"/></td>
+    <td><img width="150" height="150" alt="4226" src="https://github.com/user-attachments/assets/6826eae9-7ae4-49f2-a993-ab4b9ddf6feb"/></td>
+    <td><img width="150" height="150" alt="1782_sml" src="https://github.com/user-attachments/assets/3028fa0f-1594-4b02-9cf4-479ce2899ac8"/></td>
   </tr>
 </table>
+
 
 #### GPIO Expander:
 An MCP23017 I2C expander is included to provide additional GPIO pins for the Pod as needed. Breakout headers expose all 16 I/O pins for flexible peripheral connections.
@@ -62,7 +63,7 @@ The motherboard is controlled with an Arduino Nano R4
     <td align="center"><b>MCP23017 I2C Expander:</b></td>
   </tr>
   <tr>
-    <td><img width="100" height="100" alt="1782_sml" src="https://github.com/user-attachments/assets/8a18c380-de00-4d05-92c8-3bcf3fafc89d"/></td>
+    <td><img width="100" height="100" alt="1782_sml" src="https://github.com/user-attachments/assets/8368d997-eb95-4fba-876e-13397dab67d7"/></td>
   </tr>
 </table>
 
@@ -74,11 +75,9 @@ Resistors typically take on the role of pull-ups in this design. Through-Hole Re
     <td align="center"><b>XT30 Connector:</b></td>
   </tr>
   <tr>
-    <td><img width="100" height="100" alt="1782_sml" src="https://github.com/user-attachments/assets/93737aa4-e71b-4a54-9b79-884467151fbb"/></td>
+    <td><img width="100" height="100" alt="1782_sml" src="https://github.com/user-attachments/assets/4813de63-e524-4217-bf15-1756d1bc4d30"/></td>
   </tr>
 </table>
-
-
 
 ## Communication Systems:
 ### I2C Sensor Network & I2C Expander:
